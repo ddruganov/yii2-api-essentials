@@ -2,6 +2,10 @@
 
 Bunch of small components to make one's development life eaiser
 
+## Installation
+
+` composer require ddruganov/yii2-api-essentials `
+
 ## Auth module
 
 1. Add this to your app's params config:
