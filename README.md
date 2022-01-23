@@ -4,7 +4,7 @@ Bunch of small components to make one's development life eaiser
 
 ## Installation
 
-` composer require ddruganov/yii2-api-essentials `
+`composer require ddruganov/yii2-api-essentials`
 
 ## Auth module
 
