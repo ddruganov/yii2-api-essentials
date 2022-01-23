@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  yii2.api.essentials.php:
+    container_name: yii2.api.essentials.php
+    build: .
+    volumes:
+      - ./:/app
+    restart: unless-stopped
+    command: [ "tail", "-f", "/dev/null" ]
