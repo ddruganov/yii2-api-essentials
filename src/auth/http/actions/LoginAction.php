@@ -9,7 +9,7 @@ use Yii;
 
 class LoginAction extends ApiAction
 {
-    public function run()
+    public function run(): ExecutionResult
     {
         $loginForm = $this->getLoginForm();
         $loginForm->setAttributes($this->getData());

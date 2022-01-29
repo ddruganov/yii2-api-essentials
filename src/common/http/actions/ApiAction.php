@@ -9,16 +9,13 @@ use yii\base\Action;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 
-class ApiAction extends Action
+abstract class ApiAction extends Action
 {
     private array $data = [];
 
     protected function beforeRun()
     {
-        $json = file_get_contents('php://input');
-        $decoded = Json::decode($json) ?: [];
-
-        $this->data = array_merge(Yii::$app->getRequest()->get(), $decoded);
+        $this->mergeIncomingData();
 
         return parent::beforeRun();
     }
@@ -33,9 +30,19 @@ class ApiAction extends Action
         try {
             return parent::runWithParams($params);
         } catch (Throwable $t) {
-            Yii::error([self::class, $t->getMessage(), $t->getTraceAsString()]);
+            Yii::error([$t->getMessage(), $t->getTraceAsString()]);
             Yii::$app->response->statusCode = 500;
             return ExecutionResult::exception('Ошибка сервера');
         }
+    }
+
+    public abstract function run(): ExecutionResult;
+
+    private function mergeIncomingData()
+    {
+        $json = file_get_contents('php://input');
+        $decoded = Json::decode($json) ?: [];
+
+        $this->data = array_merge(Yii::$app->getRequest()->get(), $decoded);
     }
 }
