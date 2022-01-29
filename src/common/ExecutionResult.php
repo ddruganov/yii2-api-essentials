@@ -1,6 +1,6 @@
 <?php
 
-namespace src\common;
+namespace ddruganov\Yii2ApiEssentials\common;
 
 use yii\base\Arrayable;
 use yii\helpers\ArrayHelper;

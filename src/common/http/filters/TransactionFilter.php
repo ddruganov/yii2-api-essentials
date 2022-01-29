@@ -1,6 +1,6 @@
 <?php
 
-namespace src\http\filters;
+namespace ddruganov\Yii2ApiEssentials\http\filters;
 
 use Yii;
 use yii\base\ActionFilter;

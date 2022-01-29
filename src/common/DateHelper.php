@@ -1,6 +1,6 @@
 <?php
 
-namespace src\common;
+namespace ddruganov\Yii2ApiEssentials\common;
 
 use DateTime;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace src\common\http\controllers;
+namespace ddruganov\Yii2ApiEssentials\common\http\controllers;
 
-use src\http\filters\TimerBehavior;
-use src\http\filters\TransactionFilter;
+use ddruganov\Yii2ApiEssentials\http\filters\TimerBehavior;
+use ddruganov\Yii2ApiEssentials\http\filters\TransactionFilter;
 use Yii;
 use yii\base\Controller;
 use yii\web\Response;

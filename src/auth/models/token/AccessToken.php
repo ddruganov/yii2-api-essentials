@@ -1,9 +1,9 @@
 <?php
 
-namespace src\auth\models\token;
+namespace ddruganov\Yii2ApiEssentials\auth\models\token;
 
-use src\common\behaviors\TimestampBehavior;
-use src\common\DateHelper;
+use ddruganov\Yii2ApiEssentials\common\behaviors\TimestampBehavior;
+use ddruganov\Yii2ApiEssentials\common\DateHelper;
 use yii\db\ActiveRecord;
 
 /**

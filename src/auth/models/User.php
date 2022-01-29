@@ -1,8 +1,8 @@
 <?php
 
-namespace src\auth\models;
+namespace ddruganov\Yii2ApiEssentials\auth\models;
 
-use src\common\behaviors\TimestampBehavior;
+use ddruganov\Yii2ApiEssentials\common\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
 /**

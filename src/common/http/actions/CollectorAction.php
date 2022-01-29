@@ -1,10 +1,10 @@
 <?php
 
-namespace src\common\http\actions;
+namespace ddruganov\Yii2ApiEssentials\common\http\actions;
 
 use ReflectionClass;
-use src\common\collectors\AbstractDataCollector;
-use src\common\ExecutionResult;
+use ddruganov\Yii2ApiEssentials\common\collectors\AbstractDataCollector;
+use ddruganov\Yii2ApiEssentials\common\ExecutionResult;
 
 final class CollectorAction extends ApiAction
 {

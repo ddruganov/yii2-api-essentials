@@ -1,6 +1,6 @@
 <?php
 
-namespace src\auth\models\rbac;
+namespace ddruganov\Yii2ApiEssentials\auth\models\rbac;
 
 use yii\db\ActiveRecord;
 

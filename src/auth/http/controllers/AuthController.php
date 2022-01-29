@@ -1,11 +1,11 @@
 <?php
 
-namespace src\auth\http\controllers;
+namespace ddruganov\Yii2ApiEssentials\auth\http\controllers;
 
-use src\auth\http\actions\LoginAction;
-use src\auth\http\actions\LogoutAction;
-use src\auth\http\actions\RefreshAction;
-use src\auth\http\filters\RbacFilter;
+use ddruganov\Yii2ApiEssentials\auth\http\actions\LoginAction;
+use ddruganov\Yii2ApiEssentials\auth\http\actions\LogoutAction;
+use ddruganov\Yii2ApiEssentials\auth\http\actions\RefreshAction;
+use ddruganov\Yii2ApiEssentials\auth\http\filters\RbacFilter;
 
 class AuthController extends SecureApiController
 {

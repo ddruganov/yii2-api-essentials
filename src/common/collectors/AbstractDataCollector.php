@@ -1,6 +1,6 @@
 <?php
 
-namespace src\common\collectors;
+namespace ddruganov\Yii2ApiEssentials\common\collectors;
 
 use yii\base\Component;
 

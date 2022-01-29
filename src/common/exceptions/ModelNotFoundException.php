@@ -1,6 +1,6 @@
 <?php
 
-namespace src\common\exceptions;
+namespace ddruganov\Yii2ApiEssentials\common\exceptions;
 
 use Exception;
 

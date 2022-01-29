@@ -1,8 +1,8 @@
 <?php
 
-namespace src\common\behaviors;
+namespace ddruganov\Yii2ApiEssentials\common\behaviors;
 
-use src\common\DateHelper;
+use ddruganov\Yii2ApiEssentials\common\DateHelper;
 use yii\base\Behavior;
 use yii\base\Event;
 use yii\db\ActiveRecord;

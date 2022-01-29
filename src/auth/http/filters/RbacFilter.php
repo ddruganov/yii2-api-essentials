@@ -1,11 +1,11 @@
 <?php
 
-namespace src\auth\http\filters;
+namespace ddruganov\Yii2ApiEssentials\auth\http\filters;
 
-use src\auth\exeptions\PermissionDeniedException;
-use src\auth\models\rbac\Permission;
-use src\common\exceptions\ModelNotFoundException;
-use src\common\ExecutionResult;
+use ddruganov\Yii2ApiEssentials\auth\exeptions\PermissionDeniedException;
+use ddruganov\Yii2ApiEssentials\auth\models\rbac\Permission;
+use ddruganov\Yii2ApiEssentials\common\exceptions\ModelNotFoundException;
+use ddruganov\Yii2ApiEssentials\common\ExecutionResult;
 use Throwable;
 use Yii;
 use yii\base\ActionFilter;

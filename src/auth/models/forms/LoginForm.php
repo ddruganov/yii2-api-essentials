@@ -1,8 +1,8 @@
 <?php
 
-namespace src\auth\models\forms;
+namespace ddruganov\Yii2ApiEssentials\auth\models\forms;
 
-use src\auth\models\User;
+use ddruganov\Yii2ApiEssentials\auth\models\User;
 use Yii;
 use yii\base\Model;
 

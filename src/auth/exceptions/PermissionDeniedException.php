@@ -1,6 +1,6 @@
 <?php
 
-namespace src\auth\exeptions;
+namespace ddruganov\Yii2ApiEssentials\auth\exeptions;
 
 use Exception;
 

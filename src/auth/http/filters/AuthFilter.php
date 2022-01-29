@@ -1,8 +1,8 @@
 <?php
 
-namespace src\auth\http\filters;
+namespace ddruganov\Yii2ApiEssentials\auth\http\filters;
 
-use src\common\ExecutionResult;
+use ddruganov\Yii2ApiEssentials\common\ExecutionResult;
 use Yii;
 use yii\base\ActionFilter;
 

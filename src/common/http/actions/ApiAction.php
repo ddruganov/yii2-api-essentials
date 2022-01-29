@@ -1,8 +1,8 @@
 <?php
 
-namespace src\common\http\actions;
+namespace ddruganov\Yii2ApiEssentials\common\http\actions;
 
-use src\common\ExecutionResult;
+use ddruganov\Yii2ApiEssentials\common\ExecutionResult;
 use Throwable;
 use Yii;
 use yii\base\Action;

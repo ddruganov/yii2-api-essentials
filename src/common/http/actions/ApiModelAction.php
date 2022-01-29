@@ -1,10 +1,10 @@
 <?php
 
-namespace src\common\http\actions;
+namespace ddruganov\Yii2ApiEssentials\common\http\actions;
 
 use ReflectionClass;
-use src\common\components\AbstractApiModel;
-use src\common\ExecutionResult;
+use ddruganov\Yii2ApiEssentials\common\components\AbstractApiModel;
+use ddruganov\Yii2ApiEssentials\common\ExecutionResult;
 
 final class ApiModelAction extends ApiAction
 {

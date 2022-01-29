@@ -1,8 +1,8 @@
 <?php
 
-namespace src\common\components;
+namespace ddruganov\Yii2ApiEssentials\common\components;
 
-use src\common\ExecutionResult;
+use ddruganov\Yii2ApiEssentials\common\ExecutionResult;
 use yii\base\Model;
 
 abstract class AbstractApiModel extends Model

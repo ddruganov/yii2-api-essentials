@@ -1,8 +1,8 @@
 <?php
 
-namespace src\auth\models\rbac;
+namespace ddruganov\Yii2ApiEssentials\auth\models\rbac;
 
-use src\auth\models\User;
+use ddruganov\Yii2ApiEssentials\auth\models\User;
 use yii\db\ActiveRecord;
 
 /**

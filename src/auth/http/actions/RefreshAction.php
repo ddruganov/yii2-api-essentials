@@ -1,9 +1,9 @@
 <?php
 
-namespace src\auth\http\actions;
+namespace ddruganov\Yii2ApiEssentials\auth\http\actions;
 
-use src\common\ExecutionResult;
-use src\common\http\actions\ApiAction;
+use ddruganov\Yii2ApiEssentials\common\ExecutionResult;
+use ddruganov\Yii2ApiEssentials\common\http\actions\ApiAction;
 use Yii;
 
 class RefreshAction extends ApiAction

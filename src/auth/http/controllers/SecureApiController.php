@@ -1,9 +1,9 @@
 <?php
 
-namespace src\auth\http\controllers;
+namespace ddruganov\Yii2ApiEssentials\auth\http\controllers;
 
-use src\auth\http\filters\AuthFilter;
-use src\common\http\controllers\ApiController;
+use ddruganov\Yii2ApiEssentials\auth\http\filters\AuthFilter;
+use ddruganov\Yii2ApiEssentials\common\http\controllers\ApiController;
 
 class SecureApiController extends ApiController
 {

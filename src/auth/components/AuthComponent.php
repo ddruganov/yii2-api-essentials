@@ -1,14 +1,14 @@
 <?php
 
-namespace src\auth\components;
+namespace ddruganov\Yii2ApiEssentials\auth\components;
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-use src\auth\models\token\AccessToken;
-use src\auth\models\token\RefreshToken;
-use src\auth\models\User;
-use src\common\DateHelper;
-use src\common\ExecutionResult;
+use ddruganov\Yii2ApiEssentials\auth\models\token\AccessToken;
+use ddruganov\Yii2ApiEssentials\auth\models\token\RefreshToken;
+use ddruganov\Yii2ApiEssentials\auth\models\User;
+use ddruganov\Yii2ApiEssentials\common\DateHelper;
+use ddruganov\Yii2ApiEssentials\common\ExecutionResult;
 use Yii;
 use yii\base\Component;
 

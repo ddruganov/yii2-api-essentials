@@ -1,9 +1,9 @@
 <?php
 
-namespace src\common\http\actions;
+namespace ddruganov\Yii2ApiEssentials\common\http\actions;
 
 use Closure;
-use src\common\ExecutionResult;
+use ddruganov\Yii2ApiEssentials\common\ExecutionResult;
 
 final class ClosureAction extends ApiAction
 {
