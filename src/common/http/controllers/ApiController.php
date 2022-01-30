@@ -2,7 +2,7 @@
 
 namespace ddruganov\Yii2ApiEssentials\common\http\controllers;
 
-use ddruganov\Yii2ApiEssentials\common\http\filters\TimerBehavior;
+use ddruganov\Yii2ApiEssentials\common\http\filters\TimerFilter;
 use ddruganov\Yii2ApiEssentials\common\http\filters\TransactionFilter;
 use Yii;
 use yii\base\Controller;
@@ -12,7 +12,7 @@ class ApiController extends Controller
 {
     public function behaviors()
     {
-        return [TimerBehavior::class, TransactionFilter::class];
+        return [TimerFilter::class, TransactionFilter::class];
     }
 
     public function init()
