@@ -15,6 +15,8 @@ final class CollectorAction extends ApiAction
     {
         $reflectionClass = new ReflectionClass($this->collectorClass);
         $this->collector = $reflectionClass->newInstanceArgs([$this->getData()]);
+
+        return parent::beforeRun();
     }
 
     public function run(): ExecutionResult
