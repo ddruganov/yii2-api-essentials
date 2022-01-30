@@ -3,7 +3,7 @@
 namespace ddruganov\Yii2ApiEssentials\common\http\actions;
 
 use ReflectionClass;
-use ddruganov\Yii2ApiEssentials\common\components\AbstractApiModel;
+use ddruganov\Yii2ApiEssentials\common\models\AbstractApiModel;
 use ddruganov\Yii2ApiEssentials\common\ExecutionResult;
 
 final class ApiModelAction extends ApiAction

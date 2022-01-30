@@ -1,6 +1,6 @@
 <?php
 
-namespace ddruganov\Yii2ApiEssentials\common\components;
+namespace ddruganov\Yii2ApiEssentials\common\models;
 
 use ddruganov\Yii2ApiEssentials\common\ExecutionResult;
 use yii\base\Model;
