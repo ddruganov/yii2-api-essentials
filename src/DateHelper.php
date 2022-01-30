@@ -6,9 +6,7 @@ use DateTime;
 
 class DateHelper
 {
-    public const DEFAULT_FORMAT = 'Y-m-d H:i:s';
-
-    public static function now(?string $format = static::DEFAULT_FORMAT)
+    public static function now(?string $format = 'Y-m-d H:i:s')
     {
         return $format ? self::formatTimestamp($format, time()) : time();
     }
@@ -23,12 +21,12 @@ class DateHelper
         return self::now(DateTime::ATOM);
     }
 
-    public static function epochStart(string $format = static::DEFAULT_FORMAT)
+    public static function epochStart(string $format = 'Y-m-d H:i:s')
     {
         return self::formatTimestamp($format, 0);
     }
 
-    public static function epochEnd(string $format = static::DEFAULT_FORMAT)
+    public static function epochEnd(string $format = 'Y-m-d H:i:s')
     {
         return self::formatTimestamp($format, 2147483647);
     }
