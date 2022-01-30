@@ -3,8 +3,7 @@
   "description": "Bunch of components to make one's development life eaisier",
   "type": "library",
   "require": {
-    "yiisoft/yii2": "^2.0",
-    "firebase/php-jwt": "^5.5"
+    "yiisoft/yii2": "^2.0"
   },
   "autoload": {
     "psr-4": {
