@@ -2,8 +2,8 @@
 
 namespace ddruganov\Yii2ApiEssentials\common\http\controllers;
 
-use ddruganov\Yii2ApiEssentials\http\filters\TimerBehavior;
-use ddruganov\Yii2ApiEssentials\http\filters\TransactionFilter;
+use ddruganov\Yii2ApiEssentials\common\http\filters\TimerBehavior;
+use ddruganov\Yii2ApiEssentials\common\http\filters\TransactionFilter;
 use Yii;
 use yii\base\Controller;
 use yii\web\Response;
