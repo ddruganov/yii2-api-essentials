@@ -11,6 +11,6 @@ final class ClosureAction extends ApiAction
 
     public function run(): ExecutionResult
     {
-        return ($this->closure)();
+        return ($this->closure)($this);
     }
 }

@@ -13,10 +13,15 @@ final class ApiModelAction extends ApiAction
 
     protected function beforeRun()
     {
-        $reflectionClass = new ReflectionClass($this->modelClass);
-        $this->model = $reflectionClass->newInstanceArgs([$this->getData()]);
+        if (!parent::beforeRun()) {
+            return false;
+        }
 
-        return parent::beforeRun();
+        $reflectionClass = new ReflectionClass($this->modelClass);
+        $this->model = $reflectionClass->newInstanceArgs();
+        $this->model->setAttributes($this->getData());
+
+        return true;
     }
 
     public function run(): ExecutionResult

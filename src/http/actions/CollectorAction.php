@@ -13,10 +13,15 @@ final class CollectorAction extends ApiAction
 
     protected function beforeRun()
     {
-        $reflectionClass = new ReflectionClass($this->collectorClass);
-        $this->collector = $reflectionClass->newInstanceArgs([$this->getData()]);
+        if (!parent::beforeRun()) {
+            return false;
+        }
 
-        return parent::beforeRun();
+        $reflectionClass = new ReflectionClass($this->collectorClass);
+        $this->collector = $reflectionClass->newInstanceArgs();
+        $this->collector->setAttributes($this->getData());
+
+        return true;
     }
 
     public function run(): ExecutionResult
