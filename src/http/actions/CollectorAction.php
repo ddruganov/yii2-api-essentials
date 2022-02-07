@@ -26,6 +26,6 @@ final class CollectorAction extends ApiAction
 
     public function run(): ExecutionResult
     {
-        return ExecutionResult::success($this->collector->get());
+        return ExecutionResult::success($this->collector->run());
     }
 }

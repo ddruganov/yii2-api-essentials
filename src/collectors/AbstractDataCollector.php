@@ -23,7 +23,7 @@ abstract class AbstractDataCollector extends Model
 
     protected function canRunEmpty(): bool
     {
-        return false;
+        return true;
     }
 
     protected function emptyAttributes(): bool
