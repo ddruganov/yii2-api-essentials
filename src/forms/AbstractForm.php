@@ -1,11 +1,11 @@
 <?php
 
-namespace ddruganov\Yii2ApiEssentials\models;
+namespace ddruganov\Yii2ApiEssentials\forms;
 
 use ddruganov\Yii2ApiEssentials\ExecutionResult;
 use yii\base\Model;
 
-abstract class AbstractApiModel extends Model
+abstract class AbstractForm extends Model
 {
     public abstract function run(): ExecutionResult;
 }

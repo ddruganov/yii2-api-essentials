@@ -40,6 +40,11 @@ class ExecutionResult implements Arrayable
         return $this->errors;
     }
 
+    public function getError(?string $key = null, mixed $default = null)
+    {
+        return ArrayHelper::getValue($this->getErrors(), $key, $default);
+    }
+
     public function fields()
     {
     }
@@ -60,17 +65,17 @@ class ExecutionResult implements Arrayable
 
     public static function success(mixed $data = null)
     {
-        return new self(true, null, $data, []);
+        return new self(true, data: $data);
     }
 
     public static function failure(array $errors)
     {
-        return new self(false, null, null, $errors);
+        return new self(false, errors: $errors);
     }
 
     public static function exception(string $exception)
     {
-        return new self(false, $exception, [], []);
+        return new self(false, exception: $exception);
     }
 
     public static function fromArray(array $data)

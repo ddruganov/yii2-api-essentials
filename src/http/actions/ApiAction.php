@@ -43,6 +43,6 @@ abstract class ApiAction extends Action
         $json = file_get_contents('php://input');
         $decoded = Json::decode($json) ?: [];
 
-        $this->data = array_merge(Yii::$app->getRequest()->get(), $decoded);
+        $this->data = ArrayHelper::merge(Yii::$app->getRequest()->get(), $decoded);
     }
 }

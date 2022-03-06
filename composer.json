@@ -1,33 +1,39 @@
 {
-  "name": "ddruganov/yii2-api-essentials",
-  "description": "Bunch of components to make one's development life eaisier",
-  "type": "library",
-  "require": {
-    "yiisoft/yii2": "^2.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "ddruganov\\Yii2ApiEssentials\\": "src/"
+    "name": "ddruganov/yii2-api-essentials",
+    "description": "Bunch of components to make one's development life eaisier",
+    "type": "library",
+    "require": {
+        "yiisoft/yii2": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ddruganov\\Yii2ApiEssentials\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ddruganov",
+            "email": "ddruganov@bk.ru"
+        }
+    ],
+    "fxp-asset": {
+        "enabled": false
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": false
+        }
+    },
+    "require-dev": {
+        "codeception/codeception": "^4.1",
+        "fakerphp/faker": "^1.19",
+        "codeception/module-phpbrowser": "^1.0.0",
+        "codeception/module-asserts": "^1.0.0"
     }
-  },
-  "authors": [
-    {
-      "name": "ddruganov",
-      "email": "ddruganov@bk.ru"
-    }
-  ],
-  "fxp-asset": {
-    "enabled": false
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://asset-packagist.org"
-    }
-  ],
-  "config": {
-    "allow-plugins": {
-      "yiisoft/yii2-composer": false
-    }
-  }
 }

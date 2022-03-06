@@ -19,9 +19,9 @@ class TimerFilter extends ActionFilter
     public function afterAction($action, $result)
     {
         $method = Yii::$app->getRequest()->getMethod();
-        $uri = Yii::$app->getRequest()->getUrl();
+        $url = Yii::$app->getRequest()->getUrl();
         $delta = microtime(true) - $this->startTime;
-        Yii::debug("$method $uri took $delta seconds");
+        Yii::debug("$method $url took $delta seconds");
 
         return parent::afterAction($action, $result);
     }

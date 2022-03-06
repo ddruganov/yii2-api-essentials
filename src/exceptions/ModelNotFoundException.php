@@ -8,6 +8,6 @@ class ModelNotFoundException extends Exception
 {
     public function __construct(string $modelClass)
     {
-        parent::__construct("Модель $modelClass не найдена в базе данных");
+        parent::__construct("Database search for $modelClass failed");
     }
 }
