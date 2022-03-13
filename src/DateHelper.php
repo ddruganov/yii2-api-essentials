@@ -4,16 +4,20 @@ namespace ddruganov\Yii2ApiEssentials;
 
 use DateTime;
 
-class DateHelper
+final class DateHelper
 {
-    public static function now(?string $format = 'Y-m-d H:i:s')
+    public const DATE_FORMAT = 'Y-m-d';
+    public const TIME_FORMAT = 'H:i:s';
+    public const DATETIME_FORMAT = self::DATE_FORMAT . ' ' . self::TIME_FORMAT;
+
+    public static function now(?string $format = self::DATETIME_FORMAT)
     {
         return $format ? self::formatTimestamp($format, time()) : time();
     }
 
     public static function nowd()
     {
-        return self::now('Y-m-d');
+        return self::now(self::DATE_FORMAT);
     }
 
     public static function atom()
@@ -21,12 +25,12 @@ class DateHelper
         return self::now(DateTime::ATOM);
     }
 
-    public static function epochStart(string $format = 'Y-m-d H:i:s')
+    public static function epochStart(string $format = self::DATETIME_FORMAT)
     {
         return self::formatTimestamp($format, 0);
     }
 
-    public static function epochEnd(string $format = 'Y-m-d H:i:s')
+    public static function epochEnd(string $format = self::DATETIME_FORMAT)
     {
         return self::formatTimestamp($format, 2147483647);
     }

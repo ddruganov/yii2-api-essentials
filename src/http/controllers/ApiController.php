@@ -8,7 +8,7 @@ use Yii;
 use yii\base\Controller;
 use yii\web\Response;
 
-class ApiController extends Controller
+abstract class ApiController extends Controller
 {
     public function behaviors()
     {

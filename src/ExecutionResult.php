@@ -5,7 +5,7 @@ namespace ddruganov\Yii2ApiEssentials;
 use yii\base\Arrayable;
 use yii\helpers\ArrayHelper;
 
-class ExecutionResult implements Arrayable
+final class ExecutionResult implements Arrayable
 {
     private bool $success;
     private ?string $exception;
