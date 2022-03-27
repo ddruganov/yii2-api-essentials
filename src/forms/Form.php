@@ -5,7 +5,7 @@ namespace ddruganov\Yii2ApiEssentials\forms;
 use ddruganov\Yii2ApiEssentials\ExecutionResult;
 use yii\base\Model;
 
-abstract class AbstractForm extends Model
+abstract class Form extends Model
 {
     public function run(): ExecutionResult
     {

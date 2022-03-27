@@ -2,7 +2,7 @@
 
 namespace tests\unit\tests;
 
-use ddruganov\Yii2ApiEssentials\forms\AbstractForm;
+use ddruganov\Yii2ApiEssentials\forms\Form;
 use ddruganov\Yii2ApiEssentials\ExecutionResult;
 use ddruganov\Yii2ApiEssentials\testing\UnitTest;
 
@@ -37,7 +37,7 @@ final class FormTest extends UnitTest
 
     private function createFormWithoutRules()
     {
-        return new class extends AbstractForm
+        return new class extends Form
         {
             protected function _run(): ExecutionResult
             {
@@ -48,7 +48,7 @@ final class FormTest extends UnitTest
 
     private function createFormWithRules()
     {
-        return new class extends AbstractForm
+        return new class extends Form
         {
             public ?string $checkMe = null;
 

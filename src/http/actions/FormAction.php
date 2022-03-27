@@ -4,12 +4,12 @@ namespace ddruganov\Yii2ApiEssentials\http\actions;
 
 use ReflectionClass;
 use ddruganov\Yii2ApiEssentials\ExecutionResult;
-use ddruganov\Yii2ApiEssentials\forms\AbstractForm;
+use ddruganov\Yii2ApiEssentials\forms\Form;
 
 final class FormAction extends ApiAction
 {
     public string $formClass;
-    private AbstractForm $form;
+    private Form $form;
 
     protected function beforeRun()
     {
