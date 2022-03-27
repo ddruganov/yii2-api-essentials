@@ -4,19 +4,42 @@ namespace tests\unit\tests;
 
 use ddruganov\Yii2ApiEssentials\forms\AbstractForm;
 use ddruganov\Yii2ApiEssentials\ExecutionResult;
-use tests\unit\BaseUnitTest;
-use tests\unit\UseFaker;
+use ddruganov\Yii2ApiEssentials\testing\traits\UseFaker;
+use ddruganov\Yii2ApiEssentials\testing\UnitTest;
 
-class FormTest extends BaseUnitTest
+final class FormTest extends UnitTest
 {
     public function testWithoutRules()
     {
         $form = $this->createFormWithoutRules();
         $result = $form->run();
-        $this->assertTrue($result->isSuccessful());
-        $this->assertNull($result->getException());
-        $this->assertEmpty($result->getErrors());
+        $this->assertExecutionResultSuccessful($result);
         $this->assertNotEmpty($result->getData());
+        $this->assertIsArray($result->getData());
+        $this->assertIsString($result->getData('text'));
+    }
+
+    public function testWithRulesInvalid()
+    {
+        $form = $this->createFormWithRules();
+        $result = $form->run();
+        $this->assertExecutionResultErrors(
+            result: $result,
+            errorKeys: ['checkMe']
+        );
+    }
+
+    public function testWithRulesValid()
+    {
+        $form = $this->createFormWithRules();
+        $form->setAttributes([
+            'checkMe' => $this->faker()->text()
+        ]);
+        $result = $form->run();
+        $this->assertExecutionResultSuccessful($result);
+        $this->assertNotEmpty($result->getData());
+        $this->assertIsArray($result->getData());
+        $this->assertIsString($result->getData('text'));
     }
 
     private function createFormWithoutRules()
@@ -26,33 +49,9 @@ class FormTest extends BaseUnitTest
             use UseFaker;
             protected function _run(): ExecutionResult
             {
-                return ExecutionResult::success([$this->faker()->text()]);
+                return ExecutionResult::success(['text' => $this->faker()->text()]);
             }
         };
-    }
-
-    public function testWithRulesInvalid()
-    {
-        $form = $this->createFormWithRules();
-        $result =  $form->run();
-        $this->assertFalse($result->isSuccessful());
-        $this->assertNull($result->getException());
-        $this->assertNotEmpty($result->getErrors());
-        $this->assertNotNull($result->getError('checkMe'));
-        $this->assertNull($result->getData());
-    }
-
-    public function testWithRulesValid()
-    {
-        $form = $this->createFormWithRules();
-        $form->setAttributes([
-            'checkMe' => $this->faker()->text()
-        ]);
-        $result =  $form->run();
-        $this->assertTrue($result->isSuccessful());
-        $this->assertNull($result->getException());
-        $this->assertEmpty($result->getErrors());
-        $this->assertNotEmpty($result->getData());
     }
 
     private function createFormWithRules()
@@ -60,6 +59,7 @@ class FormTest extends BaseUnitTest
         return new class extends AbstractForm
         {
             use UseFaker;
+
             public ?string $checkMe = null;
 
             public function rules()
@@ -71,7 +71,7 @@ class FormTest extends BaseUnitTest
 
             protected function _run(): ExecutionResult
             {
-                return ExecutionResult::success([$this->faker()->text()]);
+                return ExecutionResult::success(['text' => $this->faker()->text()]);
             }
         };
     }

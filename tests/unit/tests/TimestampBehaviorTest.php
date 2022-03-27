@@ -3,45 +3,39 @@
 namespace tests\unit\tests;
 
 use ddruganov\Yii2ApiEssentials\behaviors\TimestampBehavior;
-use tests\unit\BaseUnitTest;
+use ddruganov\Yii2ApiEssentials\testing\UnitTest;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\db\pgsql\Schema;
 
-class TimestampBehaviorTest extends BaseUnitTest
+final class TimestampBehaviorTest extends UnitTest
 {
-    private ActiveRecord $model;
-
-    protected function _setUp()
-    {
-        parent::_setUp();
-        $this->model = $this->createTestActiveRecord();
-    }
-
     public function testInsert()
     {
-        $this->model->save();
+        $model = $this->createTestActiveRecord();
+        $model->save();
 
-        $this->assertNotNull($this->model->created_at);
-        $this->assertNotNull($this->model->updated_at);
+        $this->assertNotNull($model->getCreatedAt());
+        $this->assertNotNull($model->getUpdatedAt());
 
-        $this->assertEquals($this->model->created_at, $this->model->updated_at);
+        $this->assertEquals($model->getCreatedAt(), $model->getUpdatedAt());
     }
 
     public function testUpdate()
     {
-        $this->model->save();
-        $originalCreatedAt = $this->model->created_at;
+        $model = $this->createTestActiveRecord();
+        $model->save();
+        $originalCreatedAt = $model->getCreatedAt();
         sleep(1);
-        $this->model->save();
+        $model->save();
 
-        $this->assertNotNull($this->model->created_at);
-        $this->assertEquals($this->model->created_at, $originalCreatedAt);
+        $this->assertNotNull($model->getCreatedAt());
+        $this->assertEquals($model->getCreatedAt(), $originalCreatedAt);
 
-        $this->assertNotNull($this->model->updated_at);
+        $this->assertNotNull($model->getUpdatedAt());
 
-        $this->assertNotEquals($this->model->created_at, $this->model->updated_at);
-        $this->assertTrue($this->model->updated_at > $this->model->created_at);
+        $this->assertNotEquals($model->getCreatedAt(), $model->getUpdatedAt());
+        $this->assertTrue($model->getUpdatedAt() > $model->getCreatedAt());
     }
 
     private function createTestActiveRecord()
@@ -69,6 +63,16 @@ class TimestampBehaviorTest extends BaseUnitTest
             public function behaviors()
             {
                 return [TimestampBehavior::class];
+            }
+
+            public function getCreatedAt()
+            {
+                return $this->created_at;
+            }
+
+            public function getUpdatedAt()
+            {
+                return $this->updated_at;
             }
         };
     }

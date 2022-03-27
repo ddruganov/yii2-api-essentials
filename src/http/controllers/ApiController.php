@@ -12,7 +12,10 @@ abstract class ApiController extends Controller
 {
     public function behaviors()
     {
-        return [TimerFilter::class, TransactionFilter::class];
+        return [
+            'timer' => TimerFilter::class,
+            'transaction' => TransactionFilter::class
+        ];
     }
 
     public function init()

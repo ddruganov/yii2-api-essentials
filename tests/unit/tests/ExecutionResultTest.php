@@ -3,9 +3,9 @@
 namespace tests\unit\tests;
 
 use ddruganov\Yii2ApiEssentials\ExecutionResult;
-use tests\unit\BaseUnitTest;
+use ddruganov\Yii2ApiEssentials\testing\UnitTest;
 
-class ExecutionResultTest extends BaseUnitTest
+class ExecutionResultTest extends UnitTest
 {
     public function testConstructorWithSuccess()
     {

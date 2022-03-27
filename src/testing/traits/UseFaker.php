@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\unit;
+namespace ddruganov\Yii2ApiEssentials\testing\traits;
 
 use Faker\Factory;
 use Faker\Generator;

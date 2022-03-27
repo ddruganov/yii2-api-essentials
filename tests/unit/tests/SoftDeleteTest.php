@@ -2,35 +2,29 @@
 
 namespace tests\unit\tests;
 
+use ddruganov\Yii2ApiEssentials\testing\UnitTest;
 use ddruganov\Yii2ApiEssentials\traits\SoftDelete;
-use tests\unit\BaseUnitTest;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\db\pgsql\Schema;
 
-class SoftDeleteTest extends BaseUnitTest
+final class SoftDeleteTest extends UnitTest
 {
-    private ActiveRecord $model;
-
-    protected function _setUp()
-    {
-        parent::_setUp();
-        $this->model = $this->createTestActiveRecord();
-    }
-
     public function testInsert()
     {
-        $this->model->save();
-        $this->assertNull($this->model->deleted_at);
+        $model = $this->createTestActiveRecord();
+        $model->save();
+        $this->assertNull($model->getDeletedAt());
     }
 
     public function testDelete()
     {
-        $this->model->save();
-        $this->model->delete();
+        $model = $this->createTestActiveRecord();
+        $model->save();
+        $model->delete();
 
-        $this->assertNotNull($this->model->deleted_at);
-        $this->assertNotNull($this->model->find()->exists());
+        $this->assertNotNull($model->getDeletedAt());
+        $this->assertNotNull($model->find()->exists());
     }
 
     private function createTestActiveRecord()
@@ -54,6 +48,11 @@ class SoftDeleteTest extends BaseUnitTest
                 return [
                     [['deleted_at'], 'safe']
                 ];
+            }
+
+            public function getDeletedAt()
+            {
+                return $this->deleted_at;
             }
         };
     }

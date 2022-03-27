@@ -13,7 +13,11 @@ abstract class AbstractForm extends Model
             return ExecutionResult::failure($this->getFirstErrors());
         }
 
-        return $this->_run();
+        $result = $this->_run();
+
+        $this->addErrors($result->getErrors());
+
+        return $result;
     }
 
     protected abstract function _run(): ExecutionResult;
