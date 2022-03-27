@@ -4,8 +4,9 @@
     "type": "library",
     "require": {
         "yiisoft/yii2": "^2.0",
-        "codeception/codeception": "^4.1",
-        "fakerphp/faker": "^1.19"
+        "fakerphp/faker": "^1.19",
+        "codeception/codeception": "*",
+        "codeception/module-asserts": "*"
     },
     "autoload": {
         "psr-4": {

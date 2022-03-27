@@ -29,13 +29,13 @@ class ExecutionResultTest extends UnitTest
     {
         $dataSets = [
             null,
-            $this->faker()->numberBetween(),
-            $this->faker()->text(),
+            $this->getFaker()->numberBetween(),
+            $this->getFaker()->text(),
             [],
-            [$this->faker()->numberBetween()],
-            [$this->faker()->asciify() => $this->faker()->numberBetween()],
+            [$this->getFaker()->numberBetween()],
+            [$this->getFaker()->asciify() => $this->getFaker()->numberBetween()],
             [
-                $this->faker()->asciify() => []
+                $this->getFaker()->asciify() => []
             ]
         ];
 
@@ -51,7 +51,7 @@ class ExecutionResultTest extends UnitTest
 
     public function testStaticException()
     {
-        $message = $this->faker()->text();
+        $message = $this->getFaker()->text();
         $result = ExecutionResult::exception($message);
         $this->assertFalse($result->isSuccessful());
         $this->assertNotNull($result->getException());
@@ -63,8 +63,8 @@ class ExecutionResultTest extends UnitTest
     public function testStaticErrors()
     {
         $errors = [
-            'test' => $this->faker()->asciify(),
-            'test2' => $this->faker()->numberBetween(),
+            'test' => $this->getFaker()->asciify(),
+            'test2' => $this->getFaker()->numberBetween(),
             'test3' => []
         ];
 
@@ -104,7 +104,7 @@ class ExecutionResultTest extends UnitTest
     {
         $data = [
             'success' => false,
-            'exception' => $this->faker()->text(),
+            'exception' => $this->getFaker()->text(),
             'data' => [],
             'errors' => []
         ];

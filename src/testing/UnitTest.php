@@ -4,7 +4,8 @@ namespace ddruganov\Yii2ApiEssentials\testing;
 
 use Codeception\Test\Unit;
 use ddruganov\Yii2ApiEssentials\ExecutionResult;
-use ddruganov\Yii2ApiEssentials\testing\traits\UseFaker;
+use Faker\Factory;
+use Faker\Generator;
 use Yii;
 use yii\db\Transaction;
 use yii\helpers\Console;
@@ -12,9 +13,9 @@ use yii\helpers\VarDumper;
 
 abstract class UnitTest extends Unit
 {
-    use UseFaker;
-
     private Transaction $transaction;
+    private Generator $generator;
+    public string $fakerFactoryClass = Factory::class;
 
     protected function _setUp()
     {
@@ -26,6 +27,11 @@ abstract class UnitTest extends Unit
     {
         parent::_tearDown();
         $this->transaction->rollBack();
+    }
+
+    protected function getFaker(): Generator
+    {
+        return $this->generator ??= $this->fakerFactoryClass::create();
     }
 
     protected function log(mixed $data)

@@ -4,7 +4,6 @@ namespace tests\unit\tests;
 
 use ddruganov\Yii2ApiEssentials\forms\AbstractForm;
 use ddruganov\Yii2ApiEssentials\ExecutionResult;
-use ddruganov\Yii2ApiEssentials\testing\traits\UseFaker;
 use ddruganov\Yii2ApiEssentials\testing\UnitTest;
 
 final class FormTest extends UnitTest
@@ -14,9 +13,6 @@ final class FormTest extends UnitTest
         $form = $this->createFormWithoutRules();
         $result = $form->run();
         $this->assertExecutionResultSuccessful($result);
-        $this->assertNotEmpty($result->getData());
-        $this->assertIsArray($result->getData());
-        $this->assertIsString($result->getData('text'));
     }
 
     public function testWithRulesInvalid()
@@ -33,23 +29,19 @@ final class FormTest extends UnitTest
     {
         $form = $this->createFormWithRules();
         $form->setAttributes([
-            'checkMe' => $this->faker()->text()
+            'checkMe' => $this->getFaker()->text()
         ]);
         $result = $form->run();
         $this->assertExecutionResultSuccessful($result);
-        $this->assertNotEmpty($result->getData());
-        $this->assertIsArray($result->getData());
-        $this->assertIsString($result->getData('text'));
     }
 
     private function createFormWithoutRules()
     {
         return new class extends AbstractForm
         {
-            use UseFaker;
             protected function _run(): ExecutionResult
             {
-                return ExecutionResult::success(['text' => $this->faker()->text()]);
+                return ExecutionResult::success();
             }
         };
     }
@@ -58,8 +50,6 @@ final class FormTest extends UnitTest
     {
         return new class extends AbstractForm
         {
-            use UseFaker;
-
             public ?string $checkMe = null;
 
             public function rules()
@@ -71,7 +61,7 @@ final class FormTest extends UnitTest
 
             protected function _run(): ExecutionResult
             {
-                return ExecutionResult::success(['text' => $this->faker()->text()]);
+                return ExecutionResult::success();
             }
         };
     }
