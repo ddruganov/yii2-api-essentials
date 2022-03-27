@@ -28,7 +28,14 @@ abstract class ApiAction extends Action
     public function runWithParams($params)
     {
         try {
-            return parent::runWithParams($params);
+            $result = parent::runWithParams($params);
+            $statusCode = match (true) {
+                (bool)$result->getException() => 500,
+                (bool)$result->getErrors() => 400,
+                default => 200
+            };
+            Yii::$app->getResponse()->setStatusCode($statusCode);
+            return $result;
         } catch (Throwable $t) {
             Yii::error([$t->getMessage(), $t->getTraceAsString()]);
             Yii::$app->response->statusCode = 500;
