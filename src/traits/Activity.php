@@ -6,6 +6,9 @@ use ReflectionClass;
 
 trait Activity
 {
+    /**
+     * @return $this
+     */
     public function active()
     {
         return $this
