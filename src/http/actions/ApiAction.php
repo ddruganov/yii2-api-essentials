@@ -20,12 +20,12 @@ abstract class ApiAction extends Action
         return parent::beforeRun();
     }
 
-    public function getData(string $key = null, mixed $default = null)
+    final public function getData(string $key = null, mixed $default = null)
     {
         return $key ? ArrayHelper::getValue($this->data, $key, $default) : $this->data;
     }
 
-    public function runWithParams($params)
+    final public function runWithParams($params)
     {
         try {
             $result = parent::runWithParams($params);

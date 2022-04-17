@@ -7,17 +7,13 @@ use yii\base\Model;
 
 abstract class Form extends Model
 {
-    public function run(): ExecutionResult
+    final public function run(): ExecutionResult
     {
         if (!$this->validate()) {
             return ExecutionResult::failure($this->getFirstErrors());
         }
 
-        $result = $this->_run();
-
-        $this->addErrors($result->getErrors());
-
-        return $result;
+        return $this->_run();
     }
 
     protected abstract function _run(): ExecutionResult;
