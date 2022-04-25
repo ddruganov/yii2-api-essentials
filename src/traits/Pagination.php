@@ -19,7 +19,7 @@ trait Pagination
      */
     public function getPageCount()
     {
-        assert($this->limit !== 0, 'Limit cannot be 0 when getting page count');
+        assert($this->limit >= 0, 'Limit cannot be less than or equal to 0 when getting page count');
         return ceil($this->count() / $this->limit);
     }
 }
